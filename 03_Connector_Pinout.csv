@@ -1,0 +1,11 @@
+﻿Connector,Pin,Name,Expected level / function,IMPORTANT
+J1,1,BATT +,12 V nominal vehicle +; external fuse,Controller supply ONLY
+J1,2,BATT -,Vehicle battery/chassis return,Connect to vehicle return
+J2,1,SW1 +,0 V/open OFF; +12 V nominal ON,Positive switched input assumed
+J2,2,SW2 +,0 V/open OFF; +12 V nominal ON,Positive switched input assumed
+J2,3,SW RET,Switch-side return,Common return external to controller
+J3,1,PWM1,"0-5 V pulses, default 50 Hz","NOT 24V, power or motor current"
+J3,2,PWM RET,5V pulse return; bond at Servo #1 ground,Connect to actual servo negative
+J4,1,PWM2,"0-5 V pulses, disabled until installed","NOT 24V, power or motor current"
+J4,2,PWM RET,5V pulse return; bond at Servo #2 ground,Connect to actual servo negative
+J5,USB,USB-C DATA,USB D+/D- and shield/GND; controller externally powered,USB VBUS DOES NOT POWER BOARD

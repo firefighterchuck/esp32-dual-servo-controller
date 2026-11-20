@@ -1,0 +1,42 @@
+{
+  "revision": "C",
+  "servo_model": "RDS51160",
+  "servo_power": "24V regulated external",
+  "servo_1": {
+    "installed": true,
+    "enabled_after_commissioning": false,
+    "input_gpio": 4,
+    "pwm_gpio": 16,
+    "frame_hz": 50,
+    "off_pulse_us": null,
+    "on_pulse_us": null,
+    "valid_vendor_min_us": 500,
+    "valid_vendor_max_us": 2500,
+    "calibrated_min_us": null,
+    "calibrated_max_us": null
+  },
+  "servo_2": {
+    "installed": false,
+    "enabled_after_commissioning": false,
+    "input_gpio": 5,
+    "pwm_gpio": 17,
+    "frame_hz": 50,
+    "off_pulse_us": null,
+    "on_pulse_us": null,
+    "valid_vendor_min_us": 500,
+    "valid_vendor_max_us": 2500,
+    "calibrated_min_us": null,
+    "calibrated_max_us": null
+  },
+  "switch_logic": "active LOW at GPIO input after optocoupler when external +12V switch is ON",
+  "debounce_ms": 25,
+  "boot": "drive GPIO16/17 LOW first; configure MCPWM hardware; validate NVS/CRC and both calibrated endpoint pairs; debounce switches; only then enable commissioned channels",
+  "runtime": "change pulse width on frame boundary; keep 50 Hz frame; suppress output when invalid settings/watchdog fault; no automatic re-home without verified mechanism",
+  "vehicle_voltage_adc": {
+    "gpio": 6,
+    "role": "diagnostic only",
+    "enabled_after_analog_protection_validation": false
+  },
+  "web_config": "local service/authenticated WiFi provision only, with persistent versioned validated settings and safe endpoint range enforcement",
+  "note": "This JSON is a behavioral specification, not a compilable ESP-IDF project or production firmware."
+}

@@ -1,0 +1,16 @@
+Files in Rev C package:
+00_START_HERE.md | 3,046 bytes
+01_System_Requirements.md | 3,512 bytes
+02_Interface_and_Pin_Map.csv | 2,000 bytes
+03_Connector_Pinout.csv | 864 bytes
+04_Electrical_Connections.csv | 6,973 bytes
+05_BOM_RevC_Preliminary.csv | 4,735 bytes
+06_Schematic_Capture_Notes.md | 6,274 bytes
+07_PCB_Floorplan_and_Mfg_Notes.md | 2,711 bytes
+08_Validation_And_Bringup.md | 3,515 bytes
+09_Firmware_Behavior.json | 1,603 bytes
+10_Manufacturer_References.md | 1,719 bytes
+12_USB_Self_Powered_Review_Hold.md | 1,175 bytes
+13_Build_Request_Notes.md | 1,453 bytes
+RevC_Electrical_Reference_Drawings.pdf | 12,461 bytes
+RevC_Wiring_Overview.png | 93,384 bytes

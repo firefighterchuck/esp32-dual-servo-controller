@@ -1,0 +1,30 @@
+﻿Ref,Pin or Pad,Net,Description,Domain
+J1,1,VEH_BATT_POS,Vehicle fused +12 V nominal,vehicle front-end
+J1,2,GND_LOGIC,Vehicle negative / chassis return,vehicle front-end
+J2,1,SW1_12V,Switch #1 positive when ON,vehicle switch domain
+J2,2,SW2_12V,Switch #2 positive when ON,vehicle switch domain
+J2,3,SW_RETURN,"Switch negative return, not tied to GND_LOGIC on board",vehicle switch domain
+J3,1,SERVO1_SIG,Servo 1 0-5 V position pulse signal ONLY,isolated 5V servo signal domain
+J3,2,GND_SERVO_ISO,Servo 1 control signal return / servo power negative,isolated 5V servo signal domain
+J4,1,SERVO2_SIG,Servo 2 0-5 V position pulse signal ONLY; reserved,isolated 5V servo signal domain
+J4,2,GND_SERVO_ISO,Servo 2 control signal return / servo power negative,isolated 5V servo signal domain
+USB-C,D-,USB_D_MINUS,ESP32 native USB on GPIO19,logic
+USB-C,D+,USB_D_PLUS,ESP32 native USB on GPIO20,logic
+U1,2,+3V3_LOGIC,ESP32 module +3.3 V,logic
+U1,"1,40,41",GND_LOGIC,ESP32 module ground including exposed pad,logic
+U1,3,EN,Enable/reset; 10k pullup / 1uF delay / reset switch,logic
+U1,4,IN1_N,GPIO4; switch 1 optocoupler collector (active LOW),logic
+U1,5,IN2_N,GPIO5; switch 2 optocoupler collector (active LOW),logic
+U1,6,VIN_ADC,GPIO6 / ADC1_CH5; optional protected supply monitor,logic
+U1,9,PWM1_RAW,GPIO16; optocoupler LED drive channel 1,logic
+U1,10,PWM2_RAW,GPIO17; optocoupler LED drive channel 2,logic
+U1,13,USB_D_MINUS,GPIO19; USB D-,logic
+U1,14,USB_D_PLUS,GPIO20; USB D+,logic
+U1,27,BOOT_N,"GPIO0 boot button, 10k to 3.3V",logic
+U1,36,UART_RX,GPIO44 UART0 RX test pad (optional),logic
+U1,37,UART_TX,GPIO43 UART0 TX test pad (optional),logic
+U4,1,GND_LOGIC,MORNSUN converter input negative,logic
+U4,2,+5V_LOGIC,MORNSUN converter input positive,logic
+U4,4,GND_SERVO_ISO,MORNSUN converter isolated output 0V,isolated 5V servo signal domain
+U4,5,+5V_SERVO_ISO,MORNSUN converter isolated output +5V,isolated 5V servo signal domain
+U4,8,NC_ISO,MORNSUN NC; do NOT connect,none

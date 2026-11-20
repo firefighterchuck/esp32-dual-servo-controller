@@ -1,0 +1,149 @@
+﻿Reference,Pin,Net,Schematic note / required check
+J1,1,VEH_BATT_POS,Vehicle fused +12 V nominal
+J1,2,GND_LOGIC,Vehicle negative / chassis return
+J2,1,SW1_12V,Switch #1 positive when ON
+J2,2,SW2_12V,Switch #2 positive when ON
+J2,3,SW_RETURN,"Switch negative return, not tied to GND_LOGIC on board"
+J3,1,SERVO1_SIG,Servo 1 0-5 V position pulse signal ONLY
+J3,2,GND_SERVO_ISO,Servo 1 control signal return / servo power negative
+J4,1,SERVO2_SIG,Servo 2 0-5 V position pulse signal ONLY; reserved
+J4,2,GND_SERVO_ISO,Servo 2 control signal return / servo power negative
+USB-C,D-,USB_D_MINUS,ESP32 native USB on GPIO19
+USB-C,D+,USB_D_PLUS,ESP32 native USB on GPIO20
+U1,2,+3V3_LOGIC,ESP32 module +3.3 V
+U1,"1,40,41",GND_LOGIC,ESP32 module ground including exposed pad
+U1,3,EN,Enable/reset; 10k pullup / 1uF delay / reset switch
+U1,4,IN1_N,GPIO4; switch 1 optocoupler collector (active LOW)
+U1,5,IN2_N,GPIO5; switch 2 optocoupler collector (active LOW)
+U1,6,VIN_ADC,GPIO6 / ADC1_CH5; optional protected supply monitor
+U1,9,PWM1_RAW,GPIO16; optocoupler LED drive channel 1
+U1,10,PWM2_RAW,GPIO17; optocoupler LED drive channel 2
+U1,13,USB_D_MINUS,GPIO19; USB D-
+U1,14,USB_D_PLUS,GPIO20; USB D+
+U1,27,BOOT_N,"GPIO0 boot button, 10k to 3.3V"
+U1,36,UART_RX,GPIO44 UART0 RX test pad (optional)
+U1,37,UART_TX,GPIO43 UART0 TX test pad (optional)
+U4,1,GND_LOGIC,MORNSUN converter input negative
+U4,2,+5V_LOGIC,MORNSUN converter input positive
+U4,4,GND_SERVO_ISO,MORNSUN converter isolated output 0V
+U4,5,+5V_SERVO_ISO,MORNSUN converter isolated output +5V
+U4,8,NC_ISO,MORNSUN NC; do NOT connect
+R101,1,SW1_12V,2.7k 0.5W series resistor
+R101,2,SW1_LIM,12V input current limiting
+D101,A,SW1_LIM,Reverse protection diode; vendor/footprint pending
+D101,K,SW1_OPTO_A,Reverse protection diode; vendor/footprint pending
+U5,1,SW1_OPTO_A,Optocoupler LED anode
+U5,2,SW_RETURN,Optocoupler LED cathode
+U5,4,IN1_N,Output phototransistor collector
+U5,3,GND_LOGIC,Output phototransistor emitter
+R103,1,IN1_N,10k pullup
+R103,2,+3V3_LOGIC,10k pullup
+C101,1,IN1_N,100nF filter
+C101,2,GND_LOGIC,100nF filter
+D103,K,SW1_12V,"Tentative TVS, value/footprint pending"
+D103,A,SW_RETURN,"Tentative TVS, value/footprint pending"
+R102,1,SW2_12V,2.7k 0.5W series resistor
+R102,2,SW2_LIM,12V input current limiting
+D102,A,SW2_LIM,Reverse protection diode; vendor/footprint pending
+D102,K,SW2_OPTO_A,Reverse protection diode; vendor/footprint pending
+U6,1,SW2_OPTO_A,Optocoupler LED anode
+U6,2,SW_RETURN,Optocoupler LED cathode
+U6,4,IN2_N,Output phototransistor collector
+U6,3,GND_LOGIC,Output phototransistor emitter
+R104,1,IN2_N,10k pullup
+R104,2,+3V3_LOGIC,10k pullup
+C102,1,IN2_N,100nF filter
+C102,2,GND_LOGIC,100nF filter
+D104,K,SW2_12V,"Tentative TVS, value/footprint pending"
+D104,A,SW_RETURN,"Tentative TVS, value/footprint pending"
+R201,1,PWM1_RAW,220 ohm opto LED current limit
+R201,2,PWM1_LED_A,220 ohm opto LED current limit
+R203,1,PWM1_RAW,100k pulldown
+R203,2,GND_LOGIC,100k pulldown
+U7,2,PWM1_LED_A,6N137 LED ANODE
+U7,3,GND_LOGIC,6N137 LED CATHODE
+U7,5,GND_SERVO_ISO,6N137 output ground
+U7,6,OPTO1_N,6N137 active-low output
+U7,7,+5V_SERVO_ISO,6N137 output enable held HIGH
+U7,8,+5V_SERVO_ISO,6N137 VCC
+U7,"1,4",NC,6N137 pins no connection
+R205,1,+5V_SERVO_ISO,2.2k output pull-up
+R205,2,OPTO1_N,2.2k output pull-up
+U9,2,OPTO1_N,74AHCT1G14 input
+U9,3,GND_SERVO_ISO,74AHCT1G14 GND
+U9,4,BUF1_OUT,74AHCT1G14 push-pull output
+U9,5,+5V_SERVO_ISO,74AHCT1G14 VCC
+U9,1,NC,74AHCT1G14 no connect
+R207,1,BUF1_OUT,220 ohm output series
+R207,2,SERVO1_SIG,220 ohm output series
+C201,1,+5V_SERVO_ISO,100nF bypass
+C201,2,GND_SERVO_ISO,100nF bypass
+C203,1,+5V_SERVO_ISO,100nF bypass
+C203,2,GND_SERVO_ISO,100nF bypass
+R202,1,PWM2_RAW,220 ohm opto LED current limit
+R202,2,PWM2_LED_A,220 ohm opto LED current limit
+R204,1,PWM2_RAW,100k pulldown
+R204,2,GND_LOGIC,100k pulldown
+U8,2,PWM2_LED_A,6N137 LED ANODE
+U8,3,GND_LOGIC,6N137 LED CATHODE
+U8,5,GND_SERVO_ISO,6N137 output ground
+U8,6,OPTO2_N,6N137 active-low output
+U8,7,+5V_SERVO_ISO,6N137 output enable held HIGH
+U8,8,+5V_SERVO_ISO,6N137 VCC
+U8,"1,4",NC,6N137 pins no connection
+R206,1,+5V_SERVO_ISO,2.2k output pull-up
+R206,2,OPTO2_N,2.2k output pull-up
+U10,2,OPTO2_N,74AHCT1G14 input
+U10,3,GND_SERVO_ISO,74AHCT1G14 GND
+U10,4,BUF2_OUT,74AHCT1G14 push-pull output
+U10,5,+5V_SERVO_ISO,74AHCT1G14 VCC
+U10,1,NC,74AHCT1G14 no connect
+R208,1,BUF2_OUT,220 ohm output series
+R208,2,SERVO2_SIG,220 ohm output series
+C202,1,+5V_SERVO_ISO,100nF bypass
+C202,2,GND_SERVO_ISO,100nF bypass
+C204,1,+5V_SERVO_ISO,100nF bypass
+C204,2,GND_SERVO_ISO,100nF bypass
+R209,1,+5V_SERVO_ISO,"270 ohm, 0.25W minimum preload"
+R209,2,GND_SERVO_ISO,"270 ohm, 0.25W minimum preload"
+C210,1,+5V_LOGIC,"MORNSUN recommended bulk caps: C210 4.7uF, C211 10uF"
+C210,2,GND_LOGIC,"MORNSUN recommended bulk caps: C210 4.7uF, C211 10uF"
+C211,1,+5V_SERVO_ISO,"MORNSUN recommended bulk caps: C210 4.7uF, C211 10uF"
+C211,2,GND_SERVO_ISO,"MORNSUN recommended bulk caps: C210 4.7uF, C211 10uF"
+R301,1,+3V3_LOGIC,10k EN pull-up
+R301,2,EN,10k EN pull-up
+C301,1,EN,1uF reset delay
+C301,2,GND_LOGIC,1uF reset delay
+SW_RESET,1,EN,Momentary N.O.
+SW_RESET,2,GND_LOGIC,Momentary N.O.
+R302,1,+3V3_LOGIC,10k BOOT pull-up
+R302,2,BOOT_N,10k BOOT pull-up
+SW_BOOT,1,BOOT_N,Momentary N.O.
+SW_BOOT,2,GND_LOGIC,Momentary N.O.
+R303,1,USB_CC1,5.1k CC pull-down
+R303,2,GND_LOGIC,5.1k CC pull-down
+R304,1,USB_CC2,5.1k CC pull-down
+R304,2,GND_LOGIC,5.1k CC pull-down
+R305,1,USB_CONN_DM,22 ohm USB D- series option
+R305,2,USB_D_MINUS,22 ohm USB D- series option
+R306,1,USB_CONN_DP,22 ohm USB D+ series option
+R306,2,USB_D_PLUS,22 ohm USB D+ series option
+J5,A5,USB_CC1,USB-C CC1
+J5,B5,USB_CC2,USB-C CC2
+J5,"A6,B6",USB_CONN_DP,USB D+ tied at receptacle pairs
+J5,"A7,B7",USB_CONN_DM,USB D- tied at receptacle pairs
+J5,"A4,A9,B4,B9",USB_HOST_VBUS_NC,USB VBUS must not connect controller power; detection optional pending review
+J5,"A1,A12,B1,B12",GND_LOGIC,USB GND
+J5,SHELL,USB_SHIELD,Shield ESD termination TBD
+R_VMON_HI,1,VIN_PROTECTED,Vehicle monitor top resistor 470k preliminary
+R_VMON_HI,2,VIN_SENSE_RAW,Vehicle monitor divider
+R_VMON_LO,1,VIN_SENSE_RAW,Vehicle monitor bottom resistor 22k preliminary
+R_VMON_LO,2,GND_LOGIC,Vehicle monitor bottom resistor
+R_VMON_SER,1,VIN_SENSE_RAW,ADC series limiter 1k provisional
+R_VMON_SER,2,VIN_ADC,ADC series limiter 1k provisional
+C_VMON,1,VIN_ADC,ADC filter 100nF
+C_VMON,2,GND_LOGIC,ADC filter 100nF
+D_VMON_CLAMP,A/K,VIN_ADC,"ADC bidirectional/clamp network sizing TBD, MUST survive transients"
+U2,"1..8,EP",POWER_STAGE_CAPTURE_HOLD,LM5164-Q1 external network intentionally NOT specified yet; do not manufacture
+U3,"1..8,EP",3V3_STAGE_CAPTURE_HOLD,"TPS62162-Q1 external network must follow TI verified reference, no guessing"
+"F1,D1,D2",TBD,AUTOMOTIVE_INPUT_HOLD,"Protection topology, TVS ratings and footprints require selection & validation"

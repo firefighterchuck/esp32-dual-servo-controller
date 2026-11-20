@@ -1,0 +1,37 @@
+﻿Designators,Qty,Value / description,Manufacturer,Manufacturer part number,Function,Status,Qualification notes
+U1,1,ESP32-S3-WROOM-1-N8,Espressif,ESP32-S3-WROOM-1-N8,ESP32 MCU radio module,PIN VERIFIED,Module land 41 and keep-out exact footprint review
+U2,1,LM5164-Q1,TI,LM5164QDDARQ1,Automotive 6-100V to 5V 1A synchronous buck,POWER DESIGN HOLD,"Requires validated complete TI reference circuit, layout and input surge review"
+U3,1,TPS62162-Q1,TI,TPS62162QDSGRQ1,Fixed 3.3V regulator 1A,POWER DESIGN HOLD,"FB pin 5 to AGND on fixed version per TI, correct inductor/caps"
+U4,1,IB0505XT-W75R3,MORNSUN,IB0505XT-W75R3,"Regulated isolated 5V output logic, 0.75W",PIN VERIFIED,1 input GND; 2 +5V in; 4 0V out; 5 +5V out; 8 NC
+"U5,U6",2,LTV-817S-TA1-C,Lite-On,LTV-817S-TA1-C,Switch optocouplers,CORE CANDIDATE,Verify CTR and package orientation under low voltage / temperature
+"U7,U8",2,6N137,Vishay,6N137-X007T,Fast PWM optocouplers,CORE CANDIDATE,Pin 2 anode; 3 cathode; 5 GND; 6 output; 7 enable; 8 VCC
+"U9,U10",2,74AHCT1G14GW,Nexperia,"74AHCT1G14GW,125",Schmitt 5V positive-pulse buffer,PIN VERIFIED,"Pin 2 A, 3 GND, 4 Y, 5 VCC, pin1 NC"
+"R101,R102",2,"2.7k, 0.5W, 1%",TBD,TBD,12V input LED current limiter,VALUE CANDIDATE,Hot/jump-start and signal-low margin test
+"D101,D102",2,Series reverse diode,TBD,TBD,Input reverse blocking,RELEASE HOLD,Reverse voltage surge rating and value TBD
+"D103,D104",2,Input TVS,TBD,TBD,Switch wire surge/ESD clamp,RELEASE HOLD,Standoff/clamp energy selection under harness pulses
+"R103,R104",2,"10k, 1%",multi-source,TBD,Input opto collector 3.3V pullups,VALUE CANDIDATE,Check CTR at low input voltage
+"C101,C102",2,"100nF X7R, 10V",multi-source,TBD,Input RC filters,VALUE CANDIDATE,Debounce in firmware >=20ms
+"R201,R202",2,220ohm 1%,multi-source,TBD,PWM optocoupler LED limit,VALUE CANDIDATE,Minimum IF over ESP32 VOH and LED Vf
+"R203,R204",2,100k 1%,multi-source,TBD,PWM GPIO default pulldown,VALUE CANDIDATE,Check reset glitches
+"R205,R206",2,2.2k 1%,multi-source,TBD,6N137 open drain pullup,VALUE CANDIDATE,Scope timing and edge distortion
+"R207,R208",2,220ohm 1%,multi-source,TBD,5V servo signal series,VALUE CANDIDATE,Check cable and input threshold
+R209,1,270ohm 0.25W,multi-source,TBD,Isolated 5V converter minimum load,VALUE CANDIDATE,Nominal 18.5mA = 92.6mW
+C201-C204,4,100nF X7R 10V,multi-source,TBD,Local opto/buffer 5V bypass,VALUE CANDIDATE,At each IC
+C210,1,4.7uF X7R 16V,multi-source,TBD,MORNSUN input recommended capacitor,VALUE VERIFIED,Verify effective capacitance and inrush
+C211,1,10uF X7R 16V,multi-source,TBD,MORNSUN 5V output recommended capacitor,VALUE VERIFIED,Verify effective capacitance and isolation return
+"R301,R302",2,10k 1%,multi-source,TBD,EN and BOOT pullups,VALUE VERIFIED,Per Espressif reference
+C301,1,1uF 10V X7R,multi-source,TBD,EN power-on reset,VALUE VERIFIED,"Per Espressif reference, validate ramp"
+"SW_RESET,SW_BOOT",2,Momentary N.O. low-profile,multi-source,TBD,Reset and Boot controls,CONNECTOR HOLD,Exact footprint/accessibility TBD
+J1,1,2-position automotive locking connector,multi-source,TBD,12V controller power,CONNECTOR HOLD,"Mechanical mating parts, strain relief and env rating TBD"
+J2,1,3-position automotive locking connector,multi-source,TBD,2 switch inputs and shared return,CONNECTOR HOLD,Exact pins/mating harness TBD
+"J3,J4",2,2-position locking signal connectors,multi-source,TBD,"Servo signal/return only, NO 24V",CONNECTOR HOLD,Keying prevents motor power miswire
+J5,1,USB2-C receptacle,multi-source,TBD,"USB data only, no power",CONNECTOR HOLD,"USB ESD, shield and footprint TBD"
+"R303,R304",2,5.1k 1%,multi-source,TBD,USB-C CC pull downs,VALUE VERIFIED,Each CC own resistor
+"R305,R306",2,22ohm optional,multi-source,TBD,USB 2.0 D+/D- serial pads,VALUE CANDIDATE,Vendor advises initial 22/33ohm and review
+R_VMON_HI,1,470k 1%,multi-source,TBD,VIN monitor divider high,OPTIONAL/UNVERIFIED,Input transient clamp required
+R_VMON_LO,1,22k 1%,multi-source,TBD,VIN monitor divider low,OPTIONAL/UNVERIFIED,Scaled <=3.3V after worst transients
+R_VMON_SER,1,1k,multi-source,TBD,VIN monitor ADC pin series,OPTIONAL/UNVERIFIED,Clamp design mandatory
+C_VMON,1,100nF,multi-source,TBD,VIN monitor ADC RC,OPTIONAL/UNVERIFIED,Check ADC settling
+D_VMON_CLAMP,1,ADC protection clamp,multi-source,TBD,VIN_MON clamp,RELEASE HOLD,Exact clamp design TBD
+"F1,D1,D2",3,"Vehicle fuse, reverse battery, high-energy TVS",multi-source,TBD,Automotive front-end protection,RELEASE HOLD,Release blocked until specified by actual environment
+OTHER_PWR_PASSIVES,TBD,"Inductors, buck feedback, capacitors, PGOOD",multi-source,TBD,5V and 3V3 complete regulator circuits,RELEASE HOLD,Capture from TI design with thermal/EMC review
